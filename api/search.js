@@ -35,7 +35,7 @@ function fetch (hostel, date) {
 }
 
 module.exports = async function (req, res) {
-  const dates = req.query.dates.split(',').map(x => x.trim())
+  const dates = (req.query.dates || '').split(',').map(x => x.trim())
   const hostel = req.query.hostel
 
   if (!hostel) {
@@ -43,6 +43,12 @@ module.exports = async function (req, res) {
   }
 
   const results = await Promise.all(dates.map(x => fetch(hostel, x)))
+    .catch((err) => err.response.statusCode === 404 ? null : [])
+
+  if (!results) {
+    return res.json({ ok: false, message: 'Please pass a valid hostel identifier'})
+  }
+
   const available = results.map(result => {
     const { hasAvailability, rooms: { dorms } } = result
 
