@@ -40,7 +40,7 @@ Or, add the respective values to `.env`:
 cp ./.env.keep ./.env
 ```
 
-You may have to edit the `.gitignore `file accordingly.
+You may have to edit the `.gitignore` file accordingly.
 
 ## 4. Deploy
 
