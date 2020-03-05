@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "public": false,
+  "env": {
+    "TOKEN": "@hostel_slack_token",
+    "CHANNEL": "@hostel_slack_channel"
+  },
+  "rewrites": [
+    { "source": "/search", "destination": "/api/search.js" }
+  ]
+}

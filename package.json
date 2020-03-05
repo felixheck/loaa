@@ -1,0 +1,10 @@
+{
+  "name": "loaa",
+  "version": "1.0.0",
+  "dependencies": {
+    "@slack/web-api": "^5.8.0",
+    "dayjs": "^1.8.21",
+    "dotenv": "^8.2.0",
+    "got": "^10.6.0"
+  }
+}
