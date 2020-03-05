@@ -58,7 +58,7 @@ module.exports = async function (req, res) {
 
   if (!available.length) {
     console.info(`No rooms available.`)
-    return res.json({ ok: false })
+    return res.json({ ok: false, available })
   }
 
   await web.chat.postMessage({
