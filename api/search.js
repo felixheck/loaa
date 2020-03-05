@@ -38,6 +38,10 @@ module.exports = async function (req, res) {
   const dates = req.query.dates.split(',').map(x => x.trim())
   const hostel = req.query.hostel
 
+  if (!hostel) {
+    return res.json({ ok: false, message: 'Please pass a hostel identifier'})
+  }
+
   const results = await Promise.all(dates.map(x => fetch(hostel, x)))
   const available = results.map(result => {
     const { hasAvailability, rooms: { dorms } } = result
